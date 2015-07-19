@@ -1,0 +1,21 @@
+FROM t4j/chainerapp:latest
+
+RUN apt-get -y update && apt-get -y upgrade
+RUN apt-get install -y nginx
+RUN apt-get install -y curl
+
+RUN pip install tornado
+
+RUN mkdir -p /var/log/t4j/serverapp
+
+COPY ./service/v-tornado /etc/init.d/
+
+COPY ./nginx/t4j /etc/nginx/sites-available/
+RUN ln -s /etc/nginx/sites-available/t4j /etc/nginx/sites-enabled/t4j && \
+  rm -f /etc/nginx/sites-enabled/default && \
+  mv /etc/init.d/nginx /etc/init.d/v-nginx
+
+RUN echo "export PYTHONPATH=/opt/t4j/chainerapp/python" >> ~/.bashrc
+
+#EXPOSE 80
+CMD source ~/.bashrc && service v-tornado start && service v-nginx start && tail -f /dev/null

@@ -1,0 +1,16 @@
+FROM ubuntu:14.04
+
+RUN apt-get -y update && apt-get -y upgrade
+RUN apt-get install -y wget
+RUN apt-get install -y zip
+
+RUN mkdir -p /opt/t4j/chainerapp
+RUN mkdir -p /opt/t4j/serverapp
+RUN mkdir -p /var/opt/t4j/chainer-data && mkdir -p /var/opt/t4j/chainer-data/image \
+  && mkdir -p /var/opt/t4j/chainer-data/mstimage && mkdir -p /var/opt/t4j/chainer-data/tmpimage \
+  && mkdir -p /var/opt/t4j/chainer-data/model
+RUN mkdir -p /tmp/t4j/mobilenurse-server && mkdir -p /tmp/t4j/mobilenurse-backup
+
+VOLUME /opt/t4j
+VOLUME /var/opt/t4j
+VOLUME /tmp/t4j
