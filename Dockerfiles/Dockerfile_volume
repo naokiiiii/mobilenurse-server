@@ -6,8 +6,8 @@ RUN apt-get install -y zip
 
 RUN mkdir -p /opt/t4j/chainerapp
 RUN mkdir -p /opt/t4j/serverapp
-RUN mkdir -p /var/opt/t4j/chainer-data && mkdir -p /var/opt/t4j/chainer-data/image \
-  && mkdir -p /var/opt/t4j/chainer-data/mstimage && mkdir -p /var/opt/t4j/chainer-data/tmpimage \
+RUN mkdir -p /var/opt/t4j/chainer-data && mkdir -p /var/opt/t4j/chainer-data/images \
+  && mkdir -p /var/opt/t4j/chainer-data/mstimages && mkdir -p /var/opt/t4j/chainer-data/tmpimages \
   && mkdir -p /var/opt/t4j/chainer-data/model
 RUN mkdir -p /tmp/t4j/mobilenurse-server && mkdir -p /tmp/t4j/mobilenurse-backup
 

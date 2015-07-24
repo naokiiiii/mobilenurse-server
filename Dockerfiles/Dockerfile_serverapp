@@ -18,4 +18,4 @@ RUN ln -s /etc/nginx/sites-available/t4j /etc/nginx/sites-enabled/t4j && \
 RUN echo "export PYTHONPATH=/opt/t4j/chainerapp/python" >> ~/.bashrc
 
 #EXPOSE 80
-CMD source ~/.bashrc && service v-tornado start && service v-nginx start && tail -f /dev/null
+#CMD source ~/.bashrc && service v-tornado start && service v-nginx start && tail -f /dev/null
